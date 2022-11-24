@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminweb-deployment
+  labels:
+    app: adminweb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: adminweb
+  template:
+    metadata:
+      labels:
+        app: adminweb
+    spec:
+      containers:
+      - name: adminweb
+        image: harbor.ailabpte.co/frontend/adminweb:43d2f51
+        ports:
+        - containerPort: 5071
+        volumeMounts:
+        - mountPath: /etc/nginx/conf.d
+          name: nginx-conf
+      volumes:
+      - name: nginx-conf
+        hostPath:
+          path: /nginx/admin
+          type: Directory
+      imagePullSecrets:
+      - name: regcred
