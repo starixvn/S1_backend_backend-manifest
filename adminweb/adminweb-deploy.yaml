@@ -24,10 +24,10 @@ spec:
           mountPath: /etc/nginx/conf.d
         - name: api-conf-volume
           mountPath: /etc/nginx/api
-      livenessProbe:
-        httpGet:
-          path: /health
-          port: 5071
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5071
       volumes:
       - name: admin-conf-volume
         configMap:
