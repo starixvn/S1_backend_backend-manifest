@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backendsite-deployment
+  labels:
+    app: backendsite
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backendsite
+  template:
+    metadata:
+      labels:
+        app: backendsite
+    spec:
+      containers:
+      - name: backendsite-dev
+        image: harbor.ailabpte.co/adminsite/backendsite:11e31aa
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: backendsite-cm
+              key: environment
+      imagePullSecrets:
+      - name: regcred
