@@ -20,12 +20,22 @@ spec:
         ports:
         - containerPort: 5071
         volumeMounts:
-        - mountPath: /etc/nginx/conf.d
-          name: nginx-conf
+        - name: admin-conf-volume
+          mountPath: /etc/nginx/conf.d
+        - name: api-conf-volume
+          mountPath: /etc/nginx/api
       volumes:
-      - name: nginx-conf
-        hostPath:
-          path: /nginx/admin
-          type: Directory
+      - name: admin-conf-volume
+        configMap:
+          name: cm-adminweb
+          items:
+          - key: key-adminconf
+            path: admin.conf
+      - name: api-conf-volume
+        configMap:
+          name: cm-adminweb
+          items:
+          - key: key-apiadminconf
+            path: ApiAdmin.conf
       imagePullSecrets:
       - name: regcred
