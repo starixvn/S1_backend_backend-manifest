@@ -20,7 +20,7 @@ data:
 
   key-apiadminconf: |
     location /api/ {
-    proxy_pass                      http://backendsite-svc/api/;
+    proxy_pass                      http://10.105.132.86:5070/api/;
           proxy_set_header                Host            $host;
           proxy_set_header                X-Real-IP       $remote_addr;
           proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -33,7 +33,7 @@ data:
     }
 
     location /apiV2/ {
-      proxy_pass                      http://backendsite-svc/apiV2/;
+      proxy_pass                      http://10.105.132.86:5070/apiV2/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -46,7 +46,7 @@ data:
     }
 
     location /lib/ {
-      proxy_pass                      http://backendsite-svc/lib/;
+      proxy_pass                      http://10.105.132.86:5070/lib/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -59,7 +59,7 @@ data:
     }
 
     location /js/ {
-      proxy_pass                      http://backendsite-svc/js/;
+      proxy_pass                      http://10.105.132.86:5070/js/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -72,7 +72,7 @@ data:
     }
 
     location /css/ {
-      proxy_pass                      http://backendsite-svc/css/;
+      proxy_pass                      http://10.105.132.86:5070/css/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -85,7 +85,7 @@ data:
     }
 
     location /Home/ {
-      proxy_pass                      http://backendsite-svc/Home/;
+      proxy_pass                      http://10.105.132.86:5070/Home/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -98,7 +98,7 @@ data:
     }
 
     location /Admin/ {
-      proxy_pass                      http://backendsite-svc/Admin/;
+      proxy_pass                      http://10.105.132.86:5070/Admin/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -111,7 +111,7 @@ data:
     }
 
     location /BankFinancial/ {
-      proxy_pass                      http://backendsite-svc/BankFinancial/;
+      proxy_pass                      http://10.105.132.86:5070/BankFinancial/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -124,7 +124,7 @@ data:
     }
 
     location /CustManage/ {
-      proxy_pass                      http://backendsite-svc/CustManage/;
+      proxy_pass                      http://10.105.132.86:5070/CustManage/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -137,7 +137,7 @@ data:
     }
 
     location /Finance/ {
-      proxy_pass                      http://backendsite-svc/Finance/;
+      proxy_pass                      http://10.105.132.86:5070/Finance/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -150,7 +150,7 @@ data:
     }
 
     location /Marketing/ {
-      proxy_pass                      http://backendsite-svc/Marketing/;
+      proxy_pass                      http://10.105.132.86:5070/Marketing/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -163,7 +163,7 @@ data:
     }
 
     location /Message/ {
-      proxy_pass                      http://backendsite-svc/Message/;
+      proxy_pass                      http://10.105.132.86:5070/Message/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -176,7 +176,7 @@ data:
     }
 
     location /Report/ {
-      proxy_pass                      http://backendsite-svc/Report/;
+      proxy_pass                      http://10.105.132.86:5070/Report/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -189,7 +189,7 @@ data:
     }
 
     location /ServerInfo/ {
-      proxy_pass                      http://backendsite-svc/ServerInfo/;
+      proxy_pass                      http://10.105.132.86:5070/ServerInfo/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -202,7 +202,7 @@ data:
     }
 
     location /common/ {
-      proxy_pass                      http://backendsite-svc/common/;
+      proxy_pass                      http://10.105.132.86:5070/common/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -215,7 +215,7 @@ data:
     }
 
     location /resource/ {
-      proxy_pass                      http://backendsite-svc/resource/;
+      proxy_pass                      http://10.105.132.86:5070/resource/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -228,7 +228,7 @@ data:
     }
 
     location /images/ {
-      proxy_pass                      http://backendsite-svc/images/;
+      proxy_pass                      http://10.105.132.86:5070/images/;
             proxy_set_header                Host            $host;
             proxy_set_header                X-Real-IP       $remote_addr;
             proxy_set_header                X-Forwarded-For $proxy_add_x_forwarded_for;
