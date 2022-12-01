@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: backendsite-cm
 data:
-  environment: Development
+  environment: Local

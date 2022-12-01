@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backendsite-dev
-        image: harbor.ailabpte.co/adminsite/backendsite:11e31aa
+        image: harbor.ailabpte.co/adminsite/backendsite:057b547
         ports:
         - containerPort: 80
         env:
