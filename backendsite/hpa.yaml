@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backendsite-hpa
+  namespace: default
+spec:
+  maxReplicas: 8
+  minReplicas: 2
+  scaleTargetRef:
+    kind: Deployment
+    name: backendsite-deployment
+  targetCPUUtilizationPercentage: 50

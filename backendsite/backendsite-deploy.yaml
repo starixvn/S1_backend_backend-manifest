@@ -19,6 +19,9 @@ spec:
         image: harbor.ailabpte.co/adminsite/backendsite:057b547
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: 200m
         env:
         - name: ASPNETCORE_ENVIRONMENT
           valueFrom:
