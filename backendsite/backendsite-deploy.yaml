@@ -16,17 +16,31 @@ spec:
     spec:
       containers:
       - name: backendsite-dev
-        image: harbor.ailabpte.co/adminsite/backendsite:057b547
+        image: harbor.ailabpte.co/adminsite/backendsite:00c67d3
         ports:
         - containerPort: 80
-        resources:
-          requests:
-            cpu: 200m
         env:
         - name: ASPNETCORE_ENVIRONMENT
           valueFrom:
             configMapKeyRef:
               name: backendsite-cm
               key: environment
+        volumeMounts:
+        - name: backendsite-appsettings
+          mountPath: /app
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5071
+        resources:
+          requests:
+            cpu: 200m
+      volumes:
+      - name: backendsite-appsettings
+        configMap:
+          name: backendsite-cm
+          items:
+          - key: appsettings.Development
+            path: appsettings.Development.json
       imagePullSecrets:
       - name: regcred
