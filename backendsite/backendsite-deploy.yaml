@@ -27,7 +27,7 @@ spec:
               key: environment
         volumeMounts:
         - name: backendsite-appsettings
-          mountPath: /app
+          mountPath: /app/appsettings.Development.json
         livenessProbe:
           httpGet:
             path: /health
