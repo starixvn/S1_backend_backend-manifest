@@ -3,10 +3,8 @@ kind: Service
 metadata:
   name: admin-service
 spec:
-  type: NodePort
   ports:
   - port: 5071
-    nodePort: 30571
     protocol: TCP
     targetPort: 5071
   selector:
