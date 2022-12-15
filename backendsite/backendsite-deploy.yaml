@@ -29,6 +29,10 @@ spec:
         - name: backendsite-appsettings
           mountPath: /app/appsettings.Development.json
           subPath: appsettings.Development.json
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
       volumes:
       - name: backendsite-appsettings
         configMap:
