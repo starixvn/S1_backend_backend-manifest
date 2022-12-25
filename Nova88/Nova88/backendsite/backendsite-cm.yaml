@@ -7,7 +7,7 @@ data:
   environment: Development
   appsettings.Development: |
     {
-      "ConfigService": [ "http://172.31.17.90:7243/" ],
+      "ConfigService": [ "http://172.31.17.90:7242/" ],
       "TpService": "http://172.31.17.90:55996/API/",
       "PayService": "http://172.31.17.90:59159/Payment/",
       "CommonService": "http://172.31.17.90:59359/Common/",
