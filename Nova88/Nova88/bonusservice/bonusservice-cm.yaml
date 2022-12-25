@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bonusservice-configmap
+  namespace: nova88
+data:
+  environment: Development
+  appsettings.Development: |
+    {
+      "ConfigService": [ "http://172.31.17.90:7242/" ],
+      "TpService": "http://172.31.17.90:55996/API/",
+      "RunVipDowngradeWorker": false
+    }
+
+
+
