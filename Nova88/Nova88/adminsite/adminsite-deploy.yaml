@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminsite-deployment
+  namespace: nova88
+  labels:
+    app: adminsite
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: adminsite
+  template:
+    metadata:
+      labels:
+        app: adminsite
+    spec:
+      containers:
+      - name: adminsite-prd
+        image: harbor.ailabpte.co/adminsite/adminsite:933f38a
+        ports:
+        - containerPort: 5070
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: adminsite-configmap
+              key: environment
+        volumeMounts:
+        - name: adminsite-appsettings
+          mountPath: /app/appsettings.Production.json
+          subPath: appsettings.Production.json
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5070
+      volumes:
+      - name: adminsite-appsettings
+        configMap:
+          name: adminsite-configmap
+          items:
+          - key: appsettings.Production
+            path: appsettings.Production.json
+      imagePullSecrets:
+      - name: ailab

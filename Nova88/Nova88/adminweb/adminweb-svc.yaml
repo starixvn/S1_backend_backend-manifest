@@ -5,8 +5,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 5071
-    nodePort: 30571
+  - port: 80
     protocol: TCP
     targetPort: 5071
   selector:

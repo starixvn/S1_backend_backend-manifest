@@ -42,4 +42,4 @@ spec:
           - key: appsettings.Development
             path: appsettings.Development.json
       imagePullSecrets:
-      - name: regcred
+      - name: ailab
