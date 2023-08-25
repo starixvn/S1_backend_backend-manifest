@@ -6,7 +6,7 @@ metadata:
   labels:
     app: adminsite
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: adminsite
@@ -16,8 +16,8 @@ spec:
         app: adminsite
     spec:
       containers:
-      - name: adminsite-prd
-        image: harbor.ailabpte.co/adminsite/adminsite:933f38a
+      - name: adminsite
+        image: harbor.ailabpte.co/adminsite/backendsite:0.0.1-nova88
         ports:
         - containerPort: 5070
         env:
@@ -26,14 +26,12 @@ spec:
             configMapKeyRef:
               name: adminsite-configmap
               key: environment
+        - name: ServiceType
+          value: API
         volumeMounts:
         - name: adminsite-appsettings
           mountPath: /app/appsettings.Production.json
           subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 5070
       volumes:
       - name: adminsite-appsettings
         configMap:
