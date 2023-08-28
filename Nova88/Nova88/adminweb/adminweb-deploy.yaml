@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: adminweb-deployment
+  namespace: nova88
   labels:
     app: adminweb
 spec:
@@ -16,18 +17,12 @@ spec:
     spec:
       containers:
       - name: adminweb
-        image: harbor.ailabpte.co/frontend/adminweb:dad0854
+        image: harbor.ailabpte.co/desktop/admin-dev:b851eb1
         ports:
         - containerPort: 5071
         volumeMounts:
         - name: admin-conf-volume
           mountPath: /etc/nginx/conf.d
-        - name: api-conf-volume
-          mountPath: /etc/nginx/api
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 5071
       volumes:
       - name: admin-conf-volume
         configMap:
@@ -35,11 +30,5 @@ spec:
           items:
           - key: key-adminconf
             path: admin.conf
-      - name: api-conf-volume
-        configMap:
-          name: adminweb-configmap
-          items:
-          - key: key-apiadminconf
-            path: ApiAdmin.conf
       imagePullSecrets:
-      - name: regcred
+      - name: ailab
