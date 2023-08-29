@@ -26,6 +26,8 @@ spec:
             configMapKeyRef:
               name: bonusservice-configmap
               key: environment
+        - name: ServiceType
+          value: API
         volumeMounts:
         - name: bonusservice-appsettings
           mountPath: /app/appsettings.Production.json
