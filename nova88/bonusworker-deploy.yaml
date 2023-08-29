@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bonusworker-deployment
+  namespace: nova88
+  labels:
+    app: bonusworker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bonusworker
+  template:
+    metadata:
+      labels:
+        app: bonusworker
+    spec:
+      containers:
+      - name: bonusworker
+        image: harbor.ailabpte.co/bonusservice/bonusservice:0.0.1-nova88
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: bonusservice-configmap
+              key: environment
+        - name: ServiceType
+          value: worker
+        volumeMounts:
+        - name: bonusservice-appsettings
+          mountPath: /app/appsettings.Production.json
+          subPath: appsettings.Production.json
+      volumes:
+      - name: bonusservice-appsettings
+        configMap:
+          name: bonusservice-configmap
+          items:
+          - key: appsettings.Production
+            path: appsettings.Production.json
+      imagePullSecrets:
+      - name: ailab
