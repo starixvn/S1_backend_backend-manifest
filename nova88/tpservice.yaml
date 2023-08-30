@@ -1,0 +1,113 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nova88
+
+---------------------
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tpservice-deployment
+  namespace: nova88
+  labels:
+    app: tpservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tpservice
+  template:
+    metadata:
+      labels:
+        app: tpservice
+    spec:
+      containers:
+      - name: tpservice
+        image: harbor.ailabpte.co/integratedservice/tpservice:0.0.1-nova88
+        ports:
+        - containerPort: 55996
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: tpservice-configmap
+              key: environment
+        - name: ServiceType
+          value: API
+        volumeMounts:
+        - name: tpservice-appsettings
+          mountPath: /app/appsettings.Production.json
+          subPath: appsettings.Production.json
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 55996
+      volumes:
+      - name: tpservice-appsettings
+        configMap:
+          name: tpservice-configmap
+          items:
+          - key: appsettings.Production
+            path: appsettings.Production.json
+      imagePullSecrets:
+      - name: ailab
+
+---------------------
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tpservice-configmap
+  namespace: nova88
+data:
+  environment: Production
+  appsettings.Production: |
+    {
+      "ElasticApm": {
+        "ServiceName": "TpService",
+        "ServiceVersion": "v1.0",
+        "Environment": "Production",
+        "LogLevel": "Info",
+        "ServerUrl": "http://54.151.226.243:8200",
+        "TransactionIgnoreUrls": "/health",
+        "TransactionSampleRate": 1.0,
+        "MaxBatchEventCount": 10
+      },
+      "ConnectionStrings": {
+        "API_MainDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=Siebog;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=Siebog;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_WagerDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=BetDetail;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_LogDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=LogDB;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_IPTable": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=IPTable;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportIPTable": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=IPTable;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_MainDB": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=Siebog;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportDB": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=Siebog;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_WagerDB": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=BetDetail;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_LogDB": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=LogDB;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_IPTable": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=IPTable;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportIPTable": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=IPTable;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;"
+      },
+      "AiLabServiceHost": {
+        "CommonServiceHost": "http://commonservice-service/Common",
+        "SeamlessUrl": "http://seamless-service"
+      },
+      "LetsTalkConfig": {
+        "LetsTalkGroupName": "SMSNotification"
+      }
+    }
+
+---------------------
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: tpservice-service
+  namespace: nova88
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 55996
+  selector:
+    app: tpservice
