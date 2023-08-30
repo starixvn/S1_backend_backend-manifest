@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: paymentservice-service
+  name: payservice-service
   namespace: nova88
 spec:
   ports:
