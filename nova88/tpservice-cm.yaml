@@ -1,57 +1,4 @@
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: nova88
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: tpservice-deployment
-  namespace: nova88
-  labels:
-    app: tpservice
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: tpservice
-  template:
-    metadata:
-      labels:
-        app: tpservice
-    spec:
-      containers:
-      - name: tpservice
-        image: harbor.ailabpte.co/integratedservice/tpservice:0.0.1-nova88
-        ports:
-        - containerPort: 55996
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: tpservice-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: tpservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 55996
-      volumes:
-      - name: tpservice-appsettings
-        configMap:
-          name: tpservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
-      imagePullSecrets:
-      - name: ailab
-
-apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tpservice-configmap
@@ -92,16 +39,3 @@ data:
         "LetsTalkGroupName": "SMSNotification"
       }
     }
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: tpservice-service
-  namespace: nova88
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 55996
-  selector:
-    app: tpservice
