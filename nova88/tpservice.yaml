@@ -3,8 +3,6 @@ kind: Namespace
 metadata:
   name: nova88
 
----------------------
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -53,8 +51,6 @@ spec:
       imagePullSecrets:
       - name: ailab
 
----------------------
-
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -96,8 +92,6 @@ data:
         "LetsTalkGroupName": "SMSNotification"
       }
     }
-
----------------------
 
 apiVersion: v1
 kind: Service
