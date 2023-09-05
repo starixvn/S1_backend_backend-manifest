@@ -5,7 +5,7 @@ metadata:
   namespace: nova88
 spec:
   ports:
-  - port: 80
+  - port: 5073
     protocol: TCP
     targetPort: 5073
   type: ClusterIP
