@@ -19,4 +19,4 @@ spec:
             service:
               name: nova88-service
               port:
-                number: 5073
+                number: 80

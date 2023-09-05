@@ -4,10 +4,10 @@ metadata:
   name: nova88-service
   namespace: nova88
 spec:
+  type: NodePort
   ports:
-  - port: 5073
+  - port: 80
     protocol: TCP
     targetPort: 5073
-  type: ClusterIP
   selector:
     app: nova88
