@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: geoipservice-deployment
+  namespace: nova88
+  labels:
+    app: geoipservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: geoipservice
+  template:
+    metadata:
+      labels:
+        app: geoipservice
+    spec:
+      containers:
+      - name: geoipservice
+        image: harbor.ailabpte.co/geoip/geoip:0c645ac
+        ports:
+        - containerPort: 55688
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: geoipservice-configmap
+              key: environment
+        - name: ServiceType
+          value: API
+        volumeMounts:
+        - name: geoipservice-appsettings
+          mountPath: /app/appsettings.Production.json
+          subPath: appsettings.Production.json
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 55688
+      volumes:
+      - name: geoipservice-appsettings
+        configMap:
+          name: geoipservice-configmap
+          items:
+          - key: appsettings.Production
+            path: appsettings.Production.json
+      imagePullSecrets:
+      - name: ailab
