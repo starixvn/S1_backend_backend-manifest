@@ -7,7 +7,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 5081
+    targetPort: 5073
   type: ClusterIP
   selector:
     app: nova88
