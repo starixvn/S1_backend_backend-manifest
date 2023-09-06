@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tpwager-configmap
+  namespace: nova88
+data:
+  environment: Production
+  appsettings.Production: |
+    {
+      "ElasticApm": {
+        "ServiceName": "TpWager",
+        "ServiceVersion": "v1.0",
+        "Environment": "Production",
+        "LogLevel": "Info",
+        "ServerUrl": "http://54.151.226.243:8200",
+        "TransactionIgnoreUrls": "/health",
+        "TransactionSampleRate": 1.0,
+        "MaxBatchEventCount": 10
+      },
+      "ConnectionStrings": {
+        "Worker_MainDB": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=Siebog;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportDB": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=Siebog;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_WagerDB": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=BetDetail;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_LogDB": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=LogDB;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_IPTable": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=IPTable;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportIPTable": "server=172.31.96.8;port=3306;user=worker_caching_sha2;database=IPTable;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;"
+      },
+      "configProxyHost": "proxyjp.nova88prd.link",
+      "configProxyPort": 3128
+    }
