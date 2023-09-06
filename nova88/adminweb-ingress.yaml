@@ -13,7 +13,8 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - http:
+    - host: "backoffice.nova88prd.link"
+      http:
         paths:
         - path: /
           pathType: Prefix
