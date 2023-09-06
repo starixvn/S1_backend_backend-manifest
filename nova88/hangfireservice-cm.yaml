@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hangfireservice-configmap
+  namespace: nova88
+data:
+  environment: Production
+  appsettings.Production: |
+    {
+      "ElasticApm": {
+        "ServiceName": "HangfireService",
+        "ServiceVersion": "v1.0",
+        "Environment": "Production",
+        "LogLevel": "Info",
+        "ServerUrl": "http://54.151.226.243:8200",
+        "TransactionIgnoreUrls": "/health",
+        "TransactionSampleRate": 1.0,
+        "MaxBatchEventCount": 10
+      },
+      "ConnectionStrings": {
+        "API_MainDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=Siebog;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=Siebog;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_WagerDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=BetDetail;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_LogDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=LogDB;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_IPTable": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=IPTable;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportIPTable": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=IPTable;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;"
+      },
+      "TelegramNotify": 1, // 1: enable 2: disable
+      "AiLabServiceHost": {
+        "CommonServiceHost": "http://commonservice-service",
+        "TpService": "http://tpservice-service",
+      },
+      "LetsTalkConfig": {
+        "SNS": {
+          "LetsTalkGroupName": "SMSNotification"
+        },
+        "Monitoring": {
+          "LetsTalkGroupName": "MonitoringNotification"
+        }
+      }
+    }
