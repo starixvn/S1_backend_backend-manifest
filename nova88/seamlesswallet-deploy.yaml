@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seamlesswallet-deployment
+  namespace: nova88
+  labels:
+    app: seamlesswallet
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: seamlesswallet
+  template:
+    metadata:
+      labels:
+        app: seamlesswallet
+    spec:
+      containers:
+      - name: seamlesswallet
+        image: harbor.ailabpte.co/integratedservice/thirdpartyseamlesswallet:4381636
+        ports:
+        - containerPort: 59259
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: seamlesswallet-configmap
+              key: environment
+        - name: ServiceType
+          value: Worker
+        volumeMounts:
+        - name: seamlesswallet-appsettings
+          mountPath: /app/appsettings.Production.json
+          subPath: appsettings.Production.json
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 59259
+      volumes:
+      - name: seamlesswallet-appsettings
+        configMap:
+          name: seamlesswallet-configmap
+          items:
+          - key: appsettings.Production
+            path: appsettings.Production.json
+      imagePullSecrets:
+      - name: ailab

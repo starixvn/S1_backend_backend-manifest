@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: settleworker-deployment
+  namespace: nova88
+  labels:
+    app: settleworker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: settleworker
+  template:
+    metadata:
+      labels:
+        app: settleworker
+    spec:
+      containers:
+      - name: settleworker
+        image: harbor.ailabpte.co/integratedservice/thirdpartysettleworker:4381636
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: settleworker-configmap
+              key: environment
+        - name: ServiceType
+          value: Worker
+        volumeMounts:
+        - name: settleworker-appsettings
+          mountPath: /app/appsettings.Production.json
+          subPath: appsettings.Production.json
+      volumes:
+      - name: settleworker-appsettings
+        configMap:
+          name: settleworker-configmap
+          items:
+          - key: appsettings.Production
+            path: appsettings.Production.json
+      imagePullSecrets:
+      - name: ailab
