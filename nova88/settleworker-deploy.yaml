@@ -22,7 +22,7 @@ spec:
         - name: ASPNETCORE_ENVIRONMENT
           valueFrom:
             configMapKeyRef:
-              name: settleworker-configmap
+              name: seamlesswallet-configmap
               key: environment
         - name: ServiceType
           value: Worker
@@ -33,7 +33,7 @@ spec:
       volumes:
       - name: settleworker-appsettings
         configMap:
-          name: settleworker-configmap
+          name: seamlesswallet-configmap
           items:
           - key: appsettings.Production
             path: appsettings.Production.json
