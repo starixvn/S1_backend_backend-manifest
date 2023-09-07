@@ -16,32 +16,32 @@ spec:
         app: storeservice
     spec:
       containers:
-      - name: storeservice
-        image: harbor.ailabpte.co/storeservice/storeservice:9c79369
-        ports:
-        - containerPort: 51001
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: storeservice-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: storeservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 51001
+        - name: storeservice
+          image: harbor.ailabpte.co/storeservice/storeservice:437d248
+          ports:
+            - containerPort: 51001
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: storeservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: storeservice-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 51001
       volumes:
-      - name: storeservice-appsettings
-        configMap:
-          name: storeservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: storeservice-appsettings
+          configMap:
+            name: storeservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
