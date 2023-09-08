@@ -27,7 +27,7 @@ spec:
               name: seamlesswallet-configmap
               key: environment
         - name: ServiceType
-          value: Worker
+          value: API
         volumeMounts:
         - name: seamlesswallet-appsettings
           mountPath: /app/appsettings.Production.json
