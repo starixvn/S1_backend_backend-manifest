@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: adminsite-configmap
-  namespace: nova88
+  namespace: leobet
 data:
   environment: Production
   appsettings.Production: |
