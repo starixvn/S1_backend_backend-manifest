@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: adminsite-configmap
+  namespace: nova88
+data:
+  environment: Production
+  appsettings.Production: |
+    {
+      "ElasticApm": {
+        "ServiceName": "BackendSite",
+        "ServiceVersion": "v1.0",
+        "Environment": "Production",
+        "LogLevel": "Info",
+        "ServerUrl": "http://54.151.226.243:8200",
+        "TransactionIgnoreUrls": "/health",
+        "TransactionSampleRate": 1.0,
+        "MaxBatchEventCount": 10
+      },
+      "ConnectionStrings": {
+        "API_MainDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=Siebog;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=Siebog;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_WagerDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=BetDetail;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_LogDB": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=LogDB;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_IPTable": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=IPTable;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportIPTable": "server=172.31.96.8;port=3306;user=api_caching_sha2;database=IPTable;password=Aa87654321!!!;SslMode=None;AllowPublicKeyRetrieval=true;"
+      },
+      "RedisConnection": "18.139.54.64:6379,3.0.253.87:6379,password=Aa12345678!,ssl=false,syncTimeout=6000",
+      "TpService": "http://tpservice-service/API/",
+      "PayService": "http://payservice-service/Payment/",
+      "CommonService": "http://commonservice-service/Common/",
+      "BonusService": "http://bonusservice-service/api/",
+      "StoreService": "http://storeservice-service",
+      "MainWalletType": 1,
+      "AWSKey": "AKIA3CXJE5UP6NQXDBU3",
+      "AwsSecretKey": "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",
+      "AwsWithdrawalFolder": "withdrawal",
+      "AwsWithdrawalAccountingFolder": "withdrawalaccounting",
+      "AwsWithdrawalUrl": "https://ailab-payment.s3-ap-southeast-1.amazonaws.com/",
+      "AwsWithdrawalBucketName": "ailab-payment",
+      "RabbitMQ": {
+        "HostName": "18.139.54.64",
+        "UserName": "ailab",
+        "Password": "VynvPGTm7N"
+      }
+    }
