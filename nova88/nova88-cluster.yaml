@@ -1,0 +1,48 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: nova88
+  region: ap-southeast-1
+  version: "1.27"
+  tags:
+    karpenter.sh/discovery: nova88
+
+vpc:
+  subnets:
+    private:
+      nova88-subnet-private1a:
+        id: "subnet-0dd11053ee9d25063"
+      nova88-subnet-private1b:
+        id: "subnet-021afa84bccb5a03d"
+      nova88-subnet-private1c:
+        id: "subnet-086d7ac1d1324cda0"
+
+iam:
+  withOIDC: true
+  serviceAccounts:
+  - metadata:
+      name: karpenter
+      namespace: karpenter
+    roleName: nova88-karpenter
+    attachPolicyARNs:
+    - arn:aws:iam::420163908753:policy/KarpenterControllerPolicy-nova88
+    roleOnly: true
+
+iamIdentityMappings:
+- arn: "arn:aws:iam::420163908753:role/KarpenterNodeRole-nova88"
+  username: system:node:{{EC2PrivateDNSName}}
+  groups:
+  - system:bootstrappers
+  - system:nodes
+
+managedNodeGroups:
+- instanceType: t3.medium
+  amiFamily: AmazonLinux2
+  name: nova88-ng
+  desiredCapacity: 2
+  minSize: 2
+  maxSize: 6
+  subnets:
+    - "subnet-0dd11053ee9d25063"
+    - "subnet-021afa84bccb5a03d"
+    - "subnet-086d7ac1d1324cda0"
