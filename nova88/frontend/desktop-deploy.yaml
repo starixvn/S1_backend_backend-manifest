@@ -6,7 +6,7 @@ metadata:
   labels:
     app: nova88
 spec:
-  replicas: 2
+  replicas: 0
   selector:
     matchLabels:
       app: nova88
