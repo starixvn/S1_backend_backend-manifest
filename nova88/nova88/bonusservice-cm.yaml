@@ -11,7 +11,7 @@ data:
       "TpService": "http://tpservice-service/API/",
       "RunVipDowngradeWorker": true,
       "RabbitMQ": {
-        "HostName": "18.139.54.64",
+        "HostName": "172.31.66.76",
         "UserName": "ailab",
         "Password": "VynvPGTm7N"
       },

@@ -39,7 +39,7 @@ data:
       "AwsWithdrawalUrl": "https://ailab-payment.s3-ap-southeast-1.amazonaws.com/",
       "AwsWithdrawalBucketName": "ailab-payment",
       "RabbitMQ": {
-        "HostName": "18.139.54.64",
+        "HostName": "172.31.66.76",
         "UserName": "ailab",
         "Password": "VynvPGTm7N"
       }

@@ -38,7 +38,7 @@ data:
       "OutgoingIp": "103.25.199.224",
       "OfficeIP": [ "218.32.244.12", "125.227.148.97", "125.227.148.102", "52.74.220.29" ],
       "RabbitMQ": {
-        "HostName": "10.4.194.37",
+        "HostName": "172.31.66.76",
         "UserName": "ailab",
         "Password": "VynvPGTm7N"
       },

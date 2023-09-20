@@ -63,7 +63,7 @@ data:
       },
       "PublicApiAuthToken": "yfXyKXsVZmhbycEP",
       "RabbitMQ": {
-        "HostName": "10.4.194.37",
+        "HostName": "172.31.66.76",
         "UserName": "ailab",
         "Password": "VynvPGTm7N"
       }
@@ -138,5 +138,10 @@ data:
         "SecretKey": "eeacd962000000001bb2dfee53937052b49ec5a57cd755319675209b",
         "ShieldService": "https://service-discovery.shield.com/discovery/v1/endpoint"
       },
-      "PublicApiAuthToken": "yfXyKXsVZmhbycEP"
+      "PublicApiAuthToken": "yfXyKXsVZmhbycEP",
+      "RabbitMQ": {
+        "HostName": "172.31.66.76",
+        "UserName": "ailab",
+        "Password": "VynvPGTm7N"
+      }
     }
