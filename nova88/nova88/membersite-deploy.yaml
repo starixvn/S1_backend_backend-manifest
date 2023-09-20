@@ -16,28 +16,28 @@ spec:
         app: membersite
     spec:
       containers:
-      - name: membersite
-        image: harbor.ailabpte.co/membersite/membersite:b096fc7
-        ports:
-        - containerPort: 80
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: membersite-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: membersite-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
+        - name: membersite
+          image: harbor.ailabpte.co/membersite/membersite:9807190
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: membersite-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: membersite-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
       volumes:
-      - name: membersite-appsettings
-        configMap:
-          name: membersite-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: membersite-appsettings
+          configMap:
+            name: membersite-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
