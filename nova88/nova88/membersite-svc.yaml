@@ -7,7 +7,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 5068
+    targetPort: 80
   type: NodePort
   selector:
     app: membersite
