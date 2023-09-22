@@ -1,0 +1,48 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: galaxy
+  region: ap-southeast-1
+  version: "1.27"
+  tags:
+    karpenter.sh/discovery: galaxy
+
+privateCluster:
+  enabled: true
+
+vpc:
+  subnets:
+    private:
+      galaxy-subnet-private1a:
+        id: "subnet-007cd0ce7233fa962"
+      galaxy-subnet-private1b:
+        id: "subnet-0f380022f6c261a35"
+      galaxy-subnet-private1c:
+        id: "subnet-08d1972c0692dbdfb"
+
+iam:
+  withOIDC: true
+  serviceAccounts:
+  - metadata:
+      name: karpenter
+      namespace: karpenter
+    roleName: galaxy-karpenter
+    attachPolicyARNs:
+    - arn:aws:iam::420163908753:policy/KarpenterControllerPolicy-galaxy
+    roleOnly: true
+
+iamIdentityMappings:
+- arn: "arn:aws:iam::420163908753:role/KarpenterNodeRole-galaxy"
+  username: system:node:{{EC2PrivateDNSName}}
+  groups:
+  - system:bootstrappers
+  - system:nodes
+
+managedNodeGroups:
+- instanceType: t3.medium
+  amiFamily: AmazonLinux2
+  name: leobet-ng
+  desiredCapacity: 2
+  minSize: 2
+  maxSize: 6
+  privateNetworking: true
