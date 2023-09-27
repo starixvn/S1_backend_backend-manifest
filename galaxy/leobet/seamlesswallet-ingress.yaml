@@ -10,6 +10,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/certificate-arn: 'arn:aws:acm:ap-southeast-1:420163908753:certificate/65761715-9f8a-4ca5-a586-ac68e7d42f74'
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/healthcheck-path: /health
 spec:
   ingressClassName: alb
   rules:
