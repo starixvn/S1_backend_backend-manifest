@@ -36,6 +36,7 @@ spec:
             httpGet:
               path: /health
               port: 59259
+      terminationGracePeriodSeconds: 30
       volumes:
         - name: seamlesswallet-appsettings
           configMap:
