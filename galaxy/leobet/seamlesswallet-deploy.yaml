@@ -16,33 +16,32 @@ spec:
         app: seamlesswallet
     spec:
       containers:
-      - name: seamlesswallet
-        image: harbor.ailabpte.co/integratedservice/thirdpartyseamlesswallet:7f2ec4e
-        ports:
-        - containerPort: 59259
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: seamlesswallet-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: seamlesswallet-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 59259
-      terminationGracePeriodSeconds: 30
+        - name: seamlesswallet
+          image: harbor.ailabpte.co/integratedservice/thirdpartyseamlesswallet:71ee695
+          ports:
+            - containerPort: 59259
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: seamlesswallet-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: seamlesswallet-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 59259
       volumes:
-      - name: seamlesswallet-appsettings
-        configMap:
-          name: seamlesswallet-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: seamlesswallet-appsettings
+          configMap:
+            name: seamlesswallet-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
