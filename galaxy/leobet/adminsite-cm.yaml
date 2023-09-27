@@ -25,7 +25,7 @@ data:
         "API_IPTable": "server=172.31.100.215;port=3306;user=api_adminsite;database=IPTable;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;",
         "API_ReportIPTable": "server=172.31.100.215;port=3306;user=api_adminsite;database=IPTable;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;"
       },
-      "RedisConnection": "18.139.54.64:6379,3.0.253.87:6379,password=Aa12345678!,ssl=false,syncTimeout=6000",
+      "RedisConnection": "172.31.66.42:6379,172.31.66.76:6379,password=Aa12345678!,ssl=false,syncTimeout=6000"
       "TpService": "http://tpservice-service/API/",
       "PayService": "http://payservice-service/Payment/",
       "CommonService": "http://commonservice-service/Common/",
@@ -39,7 +39,7 @@ data:
       "AwsWithdrawalUrl": "https://ailab-payment.s3-ap-southeast-1.amazonaws.com/",
       "AwsWithdrawalBucketName": "ailab-payment",
       "RabbitMQ": {
-        "HostName": "18.139.54.64",
+        "HostName": "172.31.66.76",
         "UserName": "ailab",
         "Password": "VynvPGTm7N"
       }
