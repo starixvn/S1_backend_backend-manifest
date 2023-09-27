@@ -8,6 +8,8 @@ metadata:
     alb.ingress.kubernetes.io/load-balancer-name: leobet-sw-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/certificate-arn: 'arn:aws:acm:ap-southeast-1:420163908753:certificate/ba18ad3e-02b8-4a44-a2cb-90fd6700a95a'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
 spec:
   ingressClassName: alb
   rules:
