@@ -8,5 +8,6 @@ spec:
   - port: 80
     protocol: TCP
     targetPort: 59259
+  type: NodePort
   selector:
     app: seamlesswallet
