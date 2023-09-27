@@ -5,7 +5,7 @@ metadata:
   namespace: leobet
 spec:
   ports:
-  - port: 443
+  - port: 80
     protocol: TCP
     targetPort: 59259
   type: NodePort
