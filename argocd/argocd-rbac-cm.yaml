@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.default: role:readonly
+  policy.csv: |
+    p, role:frontend, applications, *, frontend/*, allow
+    p, role:backend, applications, *, backend/*, allow
+
+    g, hulkchou, role:backend
+    g, ettahuang, role:backend
+    g, mickeyshiue, role:backend
+    g, alicechen, role:backend
+    g, hanschen, role:backend
+    g, anisehsieh, role:backend
+    g, jerrywei, role:backend
+    g, williechang, role:backend
+    g, jeffzhang, role:backend
+    g, aaronhsieh, role:backend
+    g, lukelin, role:frontend
+    g, wenchen, role:frontend
