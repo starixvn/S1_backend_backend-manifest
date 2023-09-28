@@ -16,32 +16,32 @@ spec:
         app: tpservice
     spec:
       containers:
-      - name: tpservice
-        image: harbor.ailabpte.co/integratedservice/thirdpartyservice:0.0.1-nova88
-        ports:
-        - containerPort: 55996
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: tpservice-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: tpservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 55996
+        - name: tpservice
+          image: harbor.ailabpte.co/integratedservice/thirdpartyservice:d83cf7a
+          ports:
+            - containerPort: 55996
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: tpservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: tpservice-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 55996
       volumes:
-      - name: tpservice-appsettings
-        configMap:
-          name: tpservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: tpservice-appsettings
+          configMap:
+            name: tpservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
