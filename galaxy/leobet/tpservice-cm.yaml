@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tpservice-configmap
+  namespace: leobet
+data:
+  environment: Production
+  appsettings.Production: |
+    {
+      "ElasticApm": {
+        "ServiceName": "TpService",
+        "ServiceVersion": "v1.0",
+        "Environment": "Production",
+        "LogLevel": "Info",
+        "ServerUrl": "http://54.151.226.243:8200",
+        "TransactionIgnoreUrls": "/health",
+        "TransactionSampleRate": 1.0,
+        "MaxBatchEventCount": 10
+      },
+      "ConnectionStrings": {
+        "API_MainDB": "server=172.31.100.215;port=3306;user=api_tpservice;database=Siebog;password=vdqcQ3Ufer@b;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportDB": "server=172.31.100.215;port=3306;user=api_tpservice;database=Siebog;password=vdqcQ3Ufer@b;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_WagerDB": "server=172.31.100.215;port=3306;user=api_tpservice;database=BetDetail;password=vdqcQ3Ufer@b;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_LogDB": "server=172.31.100.215;port=3306;user=api_tpservice;database=LogDB;password=vdqcQ3Ufer@b;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_IPTable": "server=172.31.100.215;port=3306;user=api_tpservice;database=IPTable;password=vdqcQ3Ufer@b;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportIPTable": "server=172.31.100.215;port=3306;user=api_tpservice;database=IPTable;password=vdqcQ3Ufer@b;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_MainDB": "server=172.31.100.215;port=3306;user=worker_tpservice;database=Siebog;password=t4EpV5XNm!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportDB": "server=172.31.100.215;port=3306;user=worker_tpservice;database=Siebog;password=t4EpV5XNm!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_WagerDB": "server=172.31.100.215;port=3306;user=worker_tpservice;database=BetDetail;password=t4EpV5XNm!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_LogDB": "server=172.31.100.215;port=3306;user=worker_tpservice;database=LogDB;password=t4EpV5XNm!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_IPTable": "server=172.31.100.215;port=3306;user=worker_tpservice;database=IPTable;password=t4EpV5XNm!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportIPTable": "server=172.31.100.215;port=3306;user=worker_tpservice;database=IPTable;password=t4EpV5XNm!;SslMode=None;AllowPublicKeyRetrieval=true;"
+      },
+      "AiLabServiceHost": {
+        "CommonServiceHost": "http://commonservice-service/Common",
+        "SeamlessUrl": "http://seamless-service"
+      },
+      "LetsTalkConfig": {
+        "LetsTalkGroupName": "SMSNotification"
+      }
+    }
