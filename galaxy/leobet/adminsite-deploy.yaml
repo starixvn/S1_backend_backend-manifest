@@ -16,28 +16,28 @@ spec:
         app: adminsite
     spec:
       containers:
-      - name: adminsite
-        image: harbor.ailabpte.co/adminsite/backendsite:1db500d
-        ports:
-        - containerPort: 5070
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: adminsite-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: adminsite-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
+        - name: adminsite
+          image: harbor.ailabpte.co/adminsite/backendsite:af269a1
+          ports:
+            - containerPort: 5070
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: adminsite-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: adminsite-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
       volumes:
-      - name: adminsite-appsettings
-        configMap:
-          name: adminsite-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: adminsite-appsettings
+          configMap:
+            name: adminsite-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
