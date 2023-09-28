@@ -16,32 +16,32 @@ spec:
         app: paymentservice
     spec:
       containers:
-      - name: paymentservice
-        image: harbor.ailabpte.co/paymentservice/paymentservice:5018a58
-        ports:
-        - containerPort: 59159
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: paymentservice-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: paymentservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 59159
+        - name: paymentservice
+          image: harbor.ailabpte.co/paymentservice/paymentservice:8914012
+          ports:
+            - containerPort: 59159
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: paymentservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: paymentservice-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 59159
       volumes:
-      - name: paymentservice-appsettings
-        configMap:
-          name: paymentservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: paymentservice-appsettings
+          configMap:
+            name: paymentservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
