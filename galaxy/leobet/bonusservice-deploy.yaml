@@ -16,32 +16,32 @@ spec:
         app: bonusservice
     spec:
       containers:
-      - name: bonusservice
-        image: harbor.ailabpte.co/bonusservice/bonusservice:34884bd
-        ports:
-        - containerPort: 50997
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: bonusservice-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: bonusservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 50997
+        - name: bonusservice
+          image: harbor.ailabpte.co/bonusservice/bonusservice:9aad83d
+          ports:
+            - containerPort: 50997
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: bonusservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: bonusservice-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 50997
       volumes:
-      - name: bonusservice-appsettings
-        configMap:
-          name: bonusservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: bonusservice-appsettings
+          configMap:
+            name: bonusservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab

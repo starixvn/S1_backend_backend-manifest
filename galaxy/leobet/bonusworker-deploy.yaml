@@ -16,26 +16,26 @@ spec:
         app: bonusworker
     spec:
       containers:
-      - name: bonusworker
-        image: harbor.ailabpte.co/bonusservice/bonusservice:34884bd
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: bonusservice-configmap
-              key: environment
-        - name: ServiceType
-          value: Worker
-        volumeMounts:
-        - name: bonusservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
+        - name: bonusworker
+          image: harbor.ailabpte.co/bonusservice/bonusservice:9aad83d
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: bonusservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: Worker
+          volumeMounts:
+            - name: bonusservice-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
       volumes:
-      - name: bonusservice-appsettings
-        configMap:
-          name: bonusservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: bonusservice-appsettings
+          configMap:
+            name: bonusservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
