@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paymentworker-deployment
+  namespace: leobet
+  labels:
+    app: paymentworker
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: paymentworker
+  template:
+    metadata:
+      labels:
+        app: paymentworker
+    spec:
+      containers:
+      - name: paymentworker
+        image: harbor.ailabpte.co/paymentservice/paymentservice:5018a58
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: paymentservice-configmap
+              key: environment
+        - name: ServiceType
+          value: Worker
+        volumeMounts:
+        - name: paymentworker-appsettings
+          mountPath: /app/appsettings.Production.json
+          subPath: appsettings.Production.json
+      volumes:
+      - name: paymentworker-appsettings
+        configMap:
+          name: paymentservice-configmap
+          items:
+          - key: appsettings.Production
+            path: appsettings.Production.json
+      imagePullSecrets:
+      - name: ailab
