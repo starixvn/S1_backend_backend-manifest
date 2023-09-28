@@ -16,32 +16,32 @@ spec:
         app: geoipservice
     spec:
       containers:
-      - name: geoipservice
-        image: harbor.ailabpte.co/geoip/geoip:0c645ac
-        ports:
-        - containerPort: 55688
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: geoipservice-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: geoipservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 55688
+        - name: geoipservice
+          image: harbor.ailabpte.co/geoip/geoip:de4b78a
+          ports:
+            - containerPort: 55688
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: geoipservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: geoipservice-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 55688
       volumes:
-      - name: geoipservice-appsettings
-        configMap:
-          name: geoipservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: geoipservice-appsettings
+          configMap:
+            name: geoipservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
