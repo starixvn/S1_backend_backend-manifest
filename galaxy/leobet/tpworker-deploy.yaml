@@ -16,26 +16,26 @@ spec:
         app: tpworker
     spec:
       containers:
-      - name: tpworker
-        image: harbor.ailabpte.co/integratedservice/thirdpartyservice:059063f
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: tpservice-configmap
-              key: environment
-        - name: ServiceType
-          value: Worker
-        volumeMounts:
-        - name: tpworker-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
+        - name: tpworker
+          image: harbor.ailabpte.co/integratedservice/thirdpartyservice:cf2e13b
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: tpservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: Worker
+          volumeMounts:
+            - name: tpworker-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
       volumes:
-      - name: tpworker-appsettings
-        configMap:
-          name: tpservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: tpworker-appsettings
+          configMap:
+            name: tpservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
