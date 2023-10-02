@@ -16,26 +16,26 @@ spec:
         app: thirdpartybethistory
     spec:
       containers:
-      - name: thirdpartybethistory
-        image: harbor.ailabpte.co/integratedservice/thirdpartybethistory:f9f31cf
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: thirdpartybethistory-configmap
-              key: environment
-        - name: ServiceType
-          value: Worker
-        volumeMounts:
-        - name: thirdpartybethistory-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
+        - name: thirdpartybethistory
+          image: harbor.ailabpte.co/integratedservice/thirdpartybethistory:715ce79
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: thirdpartybethistory-configmap
+                  key: environment
+            - name: ServiceType
+              value: Worker
+          volumeMounts:
+            - name: thirdpartybethistory-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
       volumes:
-      - name: thirdpartybethistory-appsettings
-        configMap:
-          name: thirdpartybethistory-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: thirdpartybethistory-appsettings
+          configMap:
+            name: thirdpartybethistory-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
