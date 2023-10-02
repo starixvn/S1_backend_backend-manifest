@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tpwager-deployment
+  namespace: leobet
+  labels:
+    app: tpwager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tpwager
+  template:
+    metadata:
+      labels:
+        app: tpwager
+    spec:
+      containers:
+      - name: tpwager
+        image: harbor.ailabpte.co/integratedservice/thirdpartywager:059063f
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          valueFrom:
+            configMapKeyRef:
+              name: tpwager-configmap
+              key: environment
+        - name: ServiceType
+          value: Worker
+        volumeMounts:
+        - name: tpwager-appsettings
+          mountPath: /app/appsettings.Production.json
+          subPath: appsettings.Production.json
+      volumes:
+      - name: tpwager-appsettings
+        configMap:
+          name: tpwager-configmap
+          items:
+          - key: appsettings.Production
+            path: appsettings.Production.json
+      imagePullSecrets:
+      - name: ailab
