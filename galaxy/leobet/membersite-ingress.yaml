@@ -13,7 +13,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: "api.leoking88.com"
+    - host: "api.aiking88dev.net"
       http:
         paths:
         - path: /
