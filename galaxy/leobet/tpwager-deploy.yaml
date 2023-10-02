@@ -16,26 +16,26 @@ spec:
         app: tpwager
     spec:
       containers:
-      - name: tpwager
-        image: harbor.ailabpte.co/integratedservice/thirdpartywager:059063f
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: tpwager-configmap
-              key: environment
-        - name: ServiceType
-          value: Worker
-        volumeMounts:
-        - name: tpwager-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
+        - name: tpwager
+          image: harbor.ailabpte.co/integratedservice/thirdpartywager:c3e2547
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: tpwager-configmap
+                  key: environment
+            - name: ServiceType
+              value: Worker
+          volumeMounts:
+            - name: tpwager-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
       volumes:
-      - name: tpwager-appsettings
-        configMap:
-          name: tpwager-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: tpwager-appsettings
+          configMap:
+            name: tpwager-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
