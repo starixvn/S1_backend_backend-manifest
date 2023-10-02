@@ -16,26 +16,26 @@ spec:
         app: settleworker
     spec:
       containers:
-      - name: settleworker
-        image: harbor.ailabpte.co/integratedservice/thirdpartysettleworker:4381636
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: seamlesswallet-configmap
-              key: environment
-        - name: ServiceType
-          value: Worker
-        volumeMounts:
-        - name: settleworker-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
+        - name: settleworker
+          image: harbor.ailabpte.co/integratedservice/thirdpartysettleworker:715ce79
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: seamlesswallet-configmap
+                  key: environment
+            - name: ServiceType
+              value: Worker
+          volumeMounts:
+            - name: settleworker-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
       volumes:
-      - name: settleworker-appsettings
-        configMap:
-          name: seamlesswallet-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: settleworker-appsettings
+          configMap:
+            name: seamlesswallet-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
