@@ -16,32 +16,32 @@ spec:
         app: hangfireservice
     spec:
       containers:
-      - name: hangfireservice
-        image: harbor.ailabpte.co/hangfireservice/hangfireservice:66fffe0
-        ports:
-        - containerPort: 45678
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: hangfireservice-configmap
-              key: environment
-        - name: Worker
-          value: API
-        volumeMounts:
-        - name: hangfireservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 45678
+        - name: hangfireservice
+          image: harbor.ailabpte.co/hangfireservice/hangfireservice:e72a1d9
+          ports:
+            - containerPort: 45678
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: hangfireservice-configmap
+                  key: environment
+            - name: Worker
+              value: API
+          volumeMounts:
+            - name: hangfireservice-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 45678
       volumes:
-      - name: hangfireservice-appsettings
-        configMap:
-          name: hangfireservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: hangfireservice-appsettings
+          configMap:
+            name: hangfireservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
