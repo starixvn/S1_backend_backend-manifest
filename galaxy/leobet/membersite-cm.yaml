@@ -38,7 +38,7 @@ data:
       "CommonService": "http://commonservice-service/Common/",
       "GeoIpService": "http://geoipservice-service/GeoIp/",
       "BonusService": "http://bonusservice-service/api/",
-      "StoreService": "http://storeservice-service",
+      "StoreService": "http://storeservice-service/api/",
       "BackendService": "http://adminsite-service/apiV2/",
       "MailConfig": {
         "MailSender": "forget@nova88.com",
@@ -115,7 +115,7 @@ data:
       "PayService": "http://payservice-service/Payment/",
       "CommonService": "http://commonservice-service/Common/",
       "BonusService": "http://bonusservice-service/api/",
-      "StoreService": "http://storeservice-service",
+      "StoreService": "http://storeservice-service/api/",
       "BackendService": "http://adminsite-service/apiV2/",
       "MailConfig": {
         "MailSender": "forget@nova88.com",
