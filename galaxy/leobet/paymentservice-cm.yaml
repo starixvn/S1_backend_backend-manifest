@@ -7,7 +7,6 @@ data:
   environment: Production
   appsettings.Production: |
     {
-      {
       "Serilog": {
         "Name": "ServiceFile",
         "MinimumLevel": {
