@@ -32,6 +32,8 @@ spec:
             - name: membersite-appsettings
               mountPath: /app/appsettings.Production.json
               subPath: appsettings.Production.json
+            - name: log-volume
+              mountPath: /membersite
       volumes:
         - name: membersite-appsettings
           configMap:
@@ -39,5 +41,9 @@ spec:
             items:
               - key: appsettings.Production
                 path: appsettings.Production.json
+        - name: log-volume
+          hostPath:
+          path: /logs/membersite
+          type: Directory
       imagePullSecrets:
         - name: ailab
