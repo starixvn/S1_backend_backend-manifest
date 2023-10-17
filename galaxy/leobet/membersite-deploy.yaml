@@ -44,6 +44,6 @@ spec:
         - name: log-volume
           hostPath:
           path: /logs/membersite
-          type: Directory
+          type: DirectoryOrCreate
       imagePullSecrets:
         - name: ailab
