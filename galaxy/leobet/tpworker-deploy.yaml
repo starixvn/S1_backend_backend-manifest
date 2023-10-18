@@ -10,6 +10,7 @@ spec:
   selector:
     matchLabels:
       app: tpworker
+  revisionHistoryLimit: 5
   template:
     metadata:
       labels:
