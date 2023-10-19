@@ -16,32 +16,32 @@ spec:
         app: commonservice
     spec:
       containers:
-      - name: commonservice
-        image: harbor.ailabpte.co/integratedservice/commonservice:d83cf7a
-        ports:
-        - containerPort: 59359
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: commonservice-configmap
-              key: environment
-        - name: ServiceType
-          value: API
-        volumeMounts:
-        - name: commonservice-appsettings
-          mountPath: /app/appsettings.Production.json
-          subPath: appsettings.Production.json
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 59359
+        - name: commonservice
+          image: harbor.ailabpte.co/integratedservice/commonservice:d3f7505
+          ports:
+            - containerPort: 59359
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: commonservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: commonservice-appsettings
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 59359
       volumes:
-      - name: commonservice-appsettings
-        configMap:
-          name: commonservice-configmap
-          items:
-          - key: appsettings.Production
-            path: appsettings.Production.json
+        - name: commonservice-appsettings
+          configMap:
+            name: commonservice-configmap
+            items:
+              - key: appsettings.Production
+                path: appsettings.Production.json
       imagePullSecrets:
-      - name: ailab
+        - name: ailab
