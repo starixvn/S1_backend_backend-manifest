@@ -10,6 +10,7 @@ spec:
   selector:
     matchLabels:
       app: bonusservice
+  revisionHistoryLimit: 5
   template:
     metadata:
       labels:
