@@ -26,11 +26,11 @@ data:
         ]
       },
       "ElasticApm": {
-        "ServiceName": "BackendSite",
+        "ServiceName": "AdminSite",
         "ServiceVersion": "v1.0",
         "Environment": "Production",
         "LogLevel": "Info",
-        "ServerUrl": "http://54.151.226.243:8200",
+        "ServerUrl": "https://apm.ailabpte.co",
         "TransactionIgnoreUrls": "/health",
         "TransactionSampleRate": 1.0,
         "MaxBatchEventCount": 10
