@@ -15,7 +15,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: "tp.aiking88dev.net"
+    - host: "tp.aiking88.net"
       http:
         paths:
         - path: /
