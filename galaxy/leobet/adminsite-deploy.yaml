@@ -16,6 +16,15 @@ spec:
       labels:
         app: adminsite
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: site
+                operator: In
+                values:
+                - leobet
       containers:
         - name: adminsite
           image: harbor.ailabpte.co/adminsite/backendsite:c734297
