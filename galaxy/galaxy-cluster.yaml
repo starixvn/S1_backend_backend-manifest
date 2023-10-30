@@ -3,14 +3,12 @@ kind: ClusterConfig
 metadata:
   name: galaxy
   region: ap-southeast-1
-  version: "1.27"
+  version: "1.28"
   tags:
     karpenter.sh/discovery: galaxy
 
-privateCluster:
-  enabled: true
-
 vpc:
+  id: vpc-03f96b97696e067b6
   subnets:
     private:
       galaxy-subnet-private1a:
@@ -39,9 +37,10 @@ iamIdentityMappings:
   - system:nodes
 
 managedNodeGroups:
-- instanceType: t3.medium
+- name: leobet-ng
+  labels: { site: leobet }
+  instanceType: t3.xlarge
   amiFamily: AmazonLinux2
-  name: leobet-ng
   desiredCapacity: 2
   minSize: 2
   maxSize: 6
