@@ -16,15 +16,6 @@ spec:
       labels:
         app: bonusservice
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: site
-                operator: In
-                values:
-                - leobet
       containers:
         - name: bonusservice
           image: harbor.ailabpte.co/bonusservice/bonusservice:1df41e0
