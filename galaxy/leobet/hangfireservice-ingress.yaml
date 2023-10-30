@@ -10,6 +10,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/group.name: leobet-hangfire-group
     alb.ingress.kubernetes.io/certificate-arn: 'arn:aws:acm:ap-southeast-1:420163908753:certificate/ba18ad3e-02b8-4a44-a2cb-90fd6700a95a'
+    alb.ingress.kubernetes.io/security-groups: ailab-https-sg
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
     alb.ingress.kubernetes.io/healthcheck-path: /health
 spec:
