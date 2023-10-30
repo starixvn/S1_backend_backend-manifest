@@ -8,6 +8,7 @@ data:
   policy.csv: |
     p, role:frontend, applications, *, frontend/*, allow
     p, role:backend, applications, *, backend/*, allow
+    p, role:operator, applications, *, */*, allow
 
     g, hulkchou, role:backend
     g, ettahuang, role:backend
@@ -21,3 +22,4 @@ data:
     g, aaronhsieh, role:backend
     g, lukelin, role:frontend
     g, wenchen, role:frontend
+    g, suhsu, role:operator
