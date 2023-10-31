@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: thirdpartybethistory-configmap
+  namespace: leobet
+data:
+  environment: Development
+  appsettings.Development: |
+    {
+      "Serilog": {
+        "Name": "ServiceFile",
+        "MinimumLevel": {
+          "Default": "Information",
+          "Overwrite": {
+            "Name": "Microsoft",
+            "Level": "Error"
+          }
+        },
+        "WriteTo": [
+          {
+            "Name": "Console",
+            "Args": {
+              "formatter": "Serilog.Formatting.Json.JsonFormatter, Serilog"
+            }
+          }
+        ]
+      },
+      "ConnectionStrings": {
+        "Worker_MainDB": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=Siebog;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportDB": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=Siebog;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_WagerDB": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=BetDetail;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_LogDB": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=LogDB;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_IPTable": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=IPTable;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportIPTable": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=IPTable;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;"
+      }
+    }
+
+
+

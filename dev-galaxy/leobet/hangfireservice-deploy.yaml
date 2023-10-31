@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hangfireservice-deployment
+  namespace: leobet
+  labels:
+    app: hangfireservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hangfireservice
+  template:
+    metadata:
+      labels:
+        app: hangfireservice
+    spec:
+      containers:
+        - name: hangfireservice
+          image: harbor.ailabpte.co/hangfireservice/hangfireservice:d2e156d
+          ports:
+            - containerPort: 45678
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: hangfireservice-configmap
+                  key: environment
+            - name: Worker
+              value: API
+          volumeMounts:
+            - name: hangfireservice-appsettings
+              mountPath: /app/appsettings.Development.json
+              subPath: appsettings.Development.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 45678
+      volumes:
+        - name: hangfireservice-appsettings
+          configMap:
+            name: hangfireservice-configmap
+            items:
+              - key: appsettings.Development
+                path: appsettings.Development.json
+      imagePullSecrets:
+        - name: ailab

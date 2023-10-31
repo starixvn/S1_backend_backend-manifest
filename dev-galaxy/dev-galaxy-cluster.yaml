@@ -1,0 +1,49 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: dev-galaxy
+  region: ap-southeast-1
+  version: "1.28"
+  tags:
+    karpenter.sh/discovery: dev-galaxy
+
+vpc:
+  id: vpc-03f96b97696e067b6
+  subnets:
+    private:
+      dev-subnet-private1a:
+        id: "subnet-0dd11053ee9d25063"
+      dev-subnet-private1b:
+        id: "subnet-021afa84bccb5a03d"
+      dev-subnet-private1c:
+        id: "subnet-086d7ac1d1324cda0"
+
+iam:
+  withOIDC: true
+  serviceAccounts:
+  - metadata:
+      name: karpenter
+      namespace: karpenter
+    roleName: dev-galaxy-karpenter
+    attachPolicyARNs:
+    - arn:aws:iam::420163908753:policy/KarpenterControllerPolicy-dev-galaxy
+    roleOnly: true
+
+iamIdentityMappings:
+- arn: "arn:aws:iam::420163908753:role/KarpenterNodeRole-dev-galaxy"
+  username: system:node:{{EC2PrivateDNSName}}
+  groups:
+  - system:bootstrappers
+  - system:nodes
+
+managedNodeGroups:
+- name: leobet-ng
+  labels: { site: leobet }
+  instanceType: t3.medium
+  amiFamily: AmazonLinux2
+  desiredCapacity: 2
+  minSize: 2
+  maxSize: 6
+  privateNetworking: true
+  ssh:
+      publicKeyName: nova88
