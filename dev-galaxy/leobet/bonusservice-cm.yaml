@@ -44,18 +44,18 @@ data:
         "Password": "VynvPGTm7N"
       },
       "ConnectionStrings": {
-        "API_MainDB": "server=172.31.70.138;port=3306;user=api_bonus;database=Siebog;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "API_ReportDB": "server=172.31.70.138;port=3306;user=api_bonus;database=Siebog;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "API_WagerDB": "server=172.31.70.138;port=3306;user=api_bonus;database=BetDetail;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "API_LogDB": "server=172.31.70.138;port=3306;user=api_bonus;database=LogDB;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "API_IPTable": "server=172.31.70.138;port=3306;user=api_bonus;database=IPTable;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "API_ReportIPTable": "server=172.31.70.138;port=3306;user=api_bonus;database=IPTable;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "Worker_MainDB": "server=172.31.70.138;port=3306;user=worker_bonus;database=Siebog;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "Worker_ReportDB": "server=172.31.70.138;port=3306;user=worker_bonus;database=Siebog;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "Worker_WagerDB": "server=172.31.70.138;port=3306;user=worker_bonus;database=BetDetail;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "Worker_LogDB": "server=172.31.70.138;port=3306;user=worker_bonus;database=LogDB;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "Worker_IPTable": "server=172.31.70.138;port=3306;user=worker_bonus;database=IPTable;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "Worker_ReportIPTable": "server=172.31.70.138;port=3306;user=worker_bonus;database=IPTable;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;"
+        "API_MainDB": "server=172.31.70.138;port=3306;user=api_bonus;database=Siebog;password=api_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportDB": "server=172.31.70.138;port=3306;user=api_bonus;database=Siebog;password=api_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_WagerDB": "server=172.31.70.138;port=3306;user=api_bonus;database=BetDetail;password=api_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_LogDB": "server=172.31.70.138;port=3306;user=api_bonus;database=LogDB;password=api_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_IPTable": "server=172.31.70.138;port=3306;user=api_bonus;database=IPTable;password=api_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportIPTable": "server=172.31.70.138;port=3306;user=api_bonus;database=IPTable;password=api_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_MainDB": "server=172.31.70.138;port=3306;user=worker_bonus;database=Siebog;password=worker_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportDB": "server=172.31.70.138;port=3306;user=worker_bonus;database=Siebog;password=worker_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_WagerDB": "server=172.31.70.138;port=3306;user=worker_bonus;database=BetDetail;password=worker_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_LogDB": "server=172.31.70.138;port=3306;user=worker_bonus;database=LogDB;password=worker_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_IPTable": "server=172.31.70.138;port=3306;user=worker_bonus;database=IPTable;password=worker_bonus;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportIPTable": "server=172.31.70.138;port=3306;user=worker_bonus;database=IPTable;password=worker_bonus;SslMode=None;AllowPublicKeyRetrieval=true;"
       },
       "RedisConnection": "172.31.66.42:6379,172.31.66.76:6379,password=Aa12345678!,ssl=false,syncTimeout=6000"
     }
