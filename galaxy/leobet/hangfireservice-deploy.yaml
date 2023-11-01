@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: hangfireservice
-          image: harbor.ailabpte.co/hangfireservice/hangfireservice:ccff4be
+          image: harbor.ailabpte.co/hangfireservice/hangfireservice:efcc618
           ports:
             - containerPort: 45678
           env:
