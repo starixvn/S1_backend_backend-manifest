@@ -9,7 +9,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/certificate-arn: 'arn:aws:acm:ap-southeast-1:420163908753:certificate/ba18ad3e-02b8-4a44-a2cb-90fd6700a95a'
-    alb.ingress.kubernetes.io/wafv2-acl-arn: arn:aws:wafv2:ap-southeast-1:420163908753:regional/webacl/Payment_AccessRule/8ebdb587-2749-49d7-b9e7-7272d5f409f1
+    alb.ingress.kubernetes.io/wafv2-acl-arn: arn:aws:wafv2:ap-southeast-1:420163908753:regional/webacl/Payment_AccessRule_PRD/db6baa54-4f1a-4490-9b42-db418365ee4b
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
     alb.ingress.kubernetes.io/healthcheck-path: /health
 spec:
