@@ -6,8 +6,8 @@ metadata:
   labels:
     app: adminsite
   annotations:
-    prometheus.io/port: 5070
-    prometheus.io/scrape: true
+    prometheus.io/port: '5070'
+    prometheus.io/scrape: 'true'
 spec:
   replicas: 1
   selector:
