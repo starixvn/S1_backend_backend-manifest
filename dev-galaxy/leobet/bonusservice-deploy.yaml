@@ -15,10 +15,13 @@ spec:
     metadata:
       labels:
         app: bonusservice
+      annotations:
+        prometheus.io/port: '50997'
+        prometheus.io/scrape: 'true'
     spec:
       containers:
         - name: bonusservice
-          image: harbor.ailabpte.co/bonusservice/bonusservice:1df41e0
+          image: harbor.ailabpte.co/bonusservice/bonusservice:972c775
           ports:
             - containerPort: 50997
           env:
