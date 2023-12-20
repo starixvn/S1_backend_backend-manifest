@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: thirdpartybethistory
-          image: harbor.ailabpte.co/integratedservice/thirdpartybethistory:16639c1
+          image: harbor.ailabpte.co/integratedservice/thirdpartybethistory:f54f95f
           env:
             - name: ASPNETCORE_ENVIRONMENT
               valueFrom:
