@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: seamlesswallet
-          image: harbor.ailabpte.co/integratedservice/thirdpartyseamlesswallet:a201b9f
+          image: harbor.ailabpte.co/integratedservice/thirdpartyseamlesswallet:9658450
           ports:
             - containerPort: 59259
           env:
