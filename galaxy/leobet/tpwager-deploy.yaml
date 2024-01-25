@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: tpwager
-          image: harbor.ailabpte.co/integratedservice/thirdpartywager:eb6d0cd
+          image: harbor.ailabpte.co/integratedservice/thirdpartywager:1bce2e8
           env:
             - name: ASPNETCORE_ENVIRONMENT
               valueFrom:
