@@ -42,8 +42,8 @@ data:
         "API_LogDB": "server=172.31.100.215;port=3306;user=api_adminsite;database=LogDB;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;",
         "API_IPTable": "server=172.31.100.215;port=3306;user=api_adminsite;database=IPTable;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;",
         "API_ReportIPTable": "server=172.31.100.215;port=3306;user=api_adminsite;database=IPTable;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "API_ReportDB_34": "server=172.31.100.215;port=3306;user=api_adminsite;database=Siebog;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "API_ReportDB_32": "server=172.31.100.215;port=3306;user=api_adminsite;database=Siebog;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;"
+        "Worker_ReportBackupDB1": "server=172.31.100.215;port=3306;user=api_adminsite;database=Siebog;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportBackupDB2": "server=172.31.100.215;port=3306;user=api_adminsite;database=Siebog;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;"
       },
       "RedisConnection": "172.31.101.6:6379,172.31.102.180:6379,password=Aa12345678!,ssl=false,syncTimeout=6000",
       "TpService": "http://tpservice-service/API/",

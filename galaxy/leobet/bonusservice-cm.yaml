@@ -50,12 +50,16 @@ data:
         "API_LogDB": "server=172.31.100.215;port=3306;user=api_bonus;database=LogDB;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
         "API_IPTable": "server=172.31.100.215;port=3306;user=api_bonus;database=IPTable;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
         "API_ReportIPTable": "server=172.31.100.215;port=3306;user=api_bonus;database=IPTable;password=G6y@UTNHZf;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportBackupDB1": "server=172.31.100.215;port=3306;user=api_adminsite;database=Siebog;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportBackupDB2": "server=172.31.100.215;port=3306;user=api_adminsite;database=Siebog;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;"
         "Worker_MainDB": "server=172.31.100.215;port=3306;user=worker_bonus;database=Siebog;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
         "Worker_ReportDB": "server=172.31.100.215;port=3306;user=worker_bonus;database=Siebog;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
         "Worker_WagerDB": "server=172.31.100.215;port=3306;user=worker_bonus;database=BetDetail;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
         "Worker_LogDB": "server=172.31.100.215;port=3306;user=worker_bonus;database=LogDB;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
         "Worker_IPTable": "server=172.31.100.215;port=3306;user=worker_bonus;database=IPTable;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
-        "Worker_ReportIPTable": "server=172.31.100.215;port=3306;user=worker_bonus;database=IPTable;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;"
+        "Worker_ReportIPTable": "server=172.31.100.215;port=3306;user=worker_bonus;database=IPTable;password=q4ntTVsp=D;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportBackupDB1": "server=172.31.100.215;port=3306;user=api_adminsite;database=Siebog;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "Worker_ReportBackupDB2": "server=172.31.100.215;port=3306;user=api_adminsite;database=Siebog;password=y$Xx8yVeZvf*;SslMode=None;AllowPublicKeyRetrieval=true;"
       },
       "RedisConnection": "172.31.101.6:6379,172.31.102.180:6379,password=Aa12345678!,ssl=false,syncTimeout=6000",
     }
