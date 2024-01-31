@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: tpservice
-          image: harbor.ailabpte.co/integratedservice/thirdpartyservice:492cfb3
+          image: harbor.ailabpte.co/integratedservice/thirdpartyservice:e3e6b1d
           ports:
             - containerPort: 55996
           env:
