@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reportservice-deployment
+  namespace: leobet
+  labels:
+    app: reportservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reportservice
+  template:
+    metadata:
+      labels:
+        app: reportservice
+    spec:
+      containers:
+        - name: reportservice
+          image: harbor.ailabpte.co/reportservice/reportservice:76cf9e8
+          ports:
+            - containerPort: 8418
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: reportservice-configmap
+                  key: environment
+            - name: ServiceType
+              value: API
+          volumeMounts:
+            - name: reportservice-appsettings
+              mountPath: /app/appsettings.Development.json
+              subPath: appsettings.Development.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8418
+      volumes:
+        - name: reportservice-appsettings
+          configMap:
+            name: reportservice-configmap
+            items:
+              - key: appsettings.Development
+                path: appsettings.Development.json
+      imagePullSecrets:
+        - name: ailab
