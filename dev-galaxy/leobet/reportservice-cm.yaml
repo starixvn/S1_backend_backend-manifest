@@ -48,5 +48,8 @@ data:
         "Worker_LogDB": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=LogDB;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
         "Worker_IPTable": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=IPTable;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;",
         "Worker_ReportIPTable": "server=172.31.70.138;port=3306;user=worker_caching_sha2;database=IPTable;password=Aa12345678!!!;SslMode=None;AllowPublicKeyRetrieval=true;"
-      }
+        "API_ReportBackupDB1": "server=172.31.70.138;port=3306;user=api_adminsite;database=Siebog;password=api_adminsite;SslMode=None;AllowPublicKeyRetrieval=true;",
+        "API_ReportBackupDB2": "server=172.31.70.138;port=3306;user=api_adminsite;database=Siebog;password=api_adminsite;SslMode=None;AllowPublicKeyRetrieval=true;"
+      },
+      "RedisConnection": "172.31.71.175:6379,172.31.72.137:6379,password=Aa12345678!,ssl=false,syncTimeout=6000"
     }
