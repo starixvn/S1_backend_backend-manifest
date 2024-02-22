@@ -20,22 +20,19 @@ spec:
           image: harbor.ailabpte.co/reportservice/reportservice:254bb2c
           ports:
             - containerPort: 8418
+        
           env:
             - name: ASPNETCORE_ENVIRONMENT
-              valueFrom:
-                configMapKeyRef:
-                  name: reportservice-configmap
-                  key: environment
+              value: Release
             - name: ServiceType
               value: API
           volumeMounts:
             - name: reportservice-appsettings
               mountPath: /app/appsettings.Release.json
-              subPath: appsettings.Production.json
-          # livenessProbe:
-          #   httpGet:
-          #     path: /health
-          #     port: 8418
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8418
       volumes:
         - name: reportservice-appsettings
           configMap:

@@ -23,10 +23,7 @@ spec:
             - containerPort: 55996
           env:
             - name: ASPNETCORE_ENVIRONMENT
-              valueFrom:
-                configMapKeyRef:
-                  name: tpservice-configmap
-                  key: environment
+              value: Release
             - name: ServiceType
               value: API
           volumeMounts:
