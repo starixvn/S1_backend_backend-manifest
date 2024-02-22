@@ -17,10 +17,9 @@ spec:
     spec:
       containers:
         - name: reportservice-rls
-          image: harbor.ailabpte.co/reportservice/reportservice:254bb2c
+          image: harbor.ailabpte.co/reportservice/reportservice:2e4b349
           ports:
             - containerPort: 8418
-        
           env:
             - name: ASPNETCORE_ENVIRONMENT
               value: Release
