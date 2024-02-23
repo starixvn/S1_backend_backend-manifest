@@ -5,7 +5,7 @@ metadata:
   namespace: leobet
   annotations:
     kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/load-balancer-name: dev-admin-alb
+    alb.ingress.kubernetes.io/load-balancer-name: dev-backend-alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/group.name: dev-backend-group
