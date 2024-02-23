@@ -10,7 +10,8 @@ metadata:
     alb.ingress.kubernetes.io/target-type: instance
     alb.ingress.kubernetes.io/group.name: dev-backend-group
     alb.ingress.kubernetes.io/certificate-arn: 'arn:aws:acm:ap-southeast-1:420163908753:certificate/65761715-9f8a-4ca5-a586-ac68e7d42f74'
-    alb.ingress.kubernetes.io/security-groups: ailab-https-sg
+    #alb.ingress.kubernetes.io/security-groups: ailab-https-sg
+    alb.ingress.kubernetes.io/wafv2-acl-arn: arn:aws:wafv2:us-east-1:420163908753:global/ipset/Frontend_Leobet_Whitelist_IP_DEV/832f7cec-ed9a-4520-87b3-e4026eb9c118
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
     alb.ingress.kubernetes.io/healthcheck-path: /health
 spec:
