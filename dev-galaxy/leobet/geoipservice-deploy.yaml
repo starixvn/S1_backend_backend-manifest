@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: geoipservice
-          image: harbor.ailabpte.co/geoip/geoip:3c81a37
+          image: harbor.ailabpte.co/geoip/geoip:5e0638f
           ports:
             - containerPort: 55688
           env:
