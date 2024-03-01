@@ -7,7 +7,6 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
-  accounts.hulkchou: apiKey, login
   accounts.ettahuang: apiKey, login
   accounts.mickeyshiue: apiKey, login
   accounts.alicechen: apiKey, login

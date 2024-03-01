@@ -10,7 +10,6 @@ data:
     p, role:backend, applications, *, backend/*, allow
     p, role:operator, applications, *, */*, allow
 
-    g, hulkchou, role:backend
     g, ettahuang, role:backend
     g, mickeyshiue, role:backend
     g, alicechen, role:backend
