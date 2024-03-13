@@ -32,10 +32,6 @@ spec:
             - name: reportservice-appsettings
               mountPath: /app/appsettings.Production.json
               subPath: appsettings.Production.json
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8418
       volumes:
         - name: reportservice-appsettings
           configMap:
