@@ -21,17 +21,18 @@ spec:
           ports:
             - containerPort: 8418
           env:
-            - name: ASPNETCORE_ENVIRONMENT
-              valueFrom:
-                configMapKeyRef:
-                  name: reportservice-configmap
-                  key: environment
+          - name: ASPNETCORE_ENVIRONMENT
+              value: Production
             - name: ServiceType
               value: API
           volumeMounts:
             - name: reportservice-appsettings
               mountPath: /app/appsettings.Production.json
               subPath: appsettings.Production.json
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8418
       volumes:
         - name: reportservice-appsettings
           configMap:
