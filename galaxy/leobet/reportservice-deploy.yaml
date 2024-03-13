@@ -22,7 +22,10 @@ spec:
             - containerPort: 8418
           env:
             - name: ASPNETCORE_ENVIRONMENT
-              value: Production
+              valueFrom:
+                configMapKeyRef:
+                  name: membersite-configmap
+                  key: environment
             - name: ServiceType
               value: API
           volumeMounts:
