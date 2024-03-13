@@ -21,7 +21,7 @@ spec:
           ports:
             - containerPort: 8418
           env:
-          - name: ASPNETCORE_ENVIRONMENT
+            - name: ASPNETCORE_ENVIRONMENT
               value: Production
             - name: ServiceType
               value: API
