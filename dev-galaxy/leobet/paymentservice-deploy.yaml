@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: paymentservice
-          image: harbor.ailabpte.co/paymentservice/paymentservice:e2507e2
+          image: harbor.ailabpte.co/paymentservice/paymentservice:926cc83
           ports:
             - containerPort: 59159
           env:
