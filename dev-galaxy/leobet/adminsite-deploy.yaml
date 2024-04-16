@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: adminsite
-          image: harbor.ailabpte.co/adminsite/backendsite:e75ee1b
+          image: harbor.ailabpte.co/adminsite/backendsite:9487769
           ports:
             - containerPort: 5070
           env:
