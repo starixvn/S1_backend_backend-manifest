@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: settleworker
-          image: harbor.ailabpte.co/integratedservice/thirdpartysettleworker:d08746b
+          image: harbor.ailabpte.co/integratedservice/thirdpartysettleworker:9d5a40e
           env:
             - name: ASPNETCORE_ENVIRONMENT
               valueFrom:
