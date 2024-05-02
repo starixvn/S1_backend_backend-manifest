@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: storeservice
-          image: harbor.ailabpte.co/storeservice/storeservice:9bd89a8
+          image: harbor.ailabpte.co/storeservice/storeservice:8e3a85e
           ports:
             - containerPort: 51001
           env:
