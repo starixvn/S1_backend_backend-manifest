@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: paymentworker
-          image: harbor.ailabpte.co/paymentservice/paymentservice:56b6402
+          image: harbor.ailabpte.co/paymentservice/paymentservice:72b975a
           env:
             - name: ASPNETCORE_ENVIRONMENT
               valueFrom:
