@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: commonservice
-          image: harbor.ailabpte.co/integratedservice/commonservice:c1a02e5
+          image: harbor.ailabpte.co/integratedservice/commonservice:133f7fe
           ports:
             - containerPort: 59359
           env:
