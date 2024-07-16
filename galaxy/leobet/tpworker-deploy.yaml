@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: tpworker
-          image: harbor.ailabpte.co/integratedservice/thirdpartyservice:1ec63c7
+          image: harbor.ailabpte.co/integratedservice/thirdpartyservice:607920e
           env:
             - name: ASPNETCORE_ENVIRONMENT
               valueFrom:
