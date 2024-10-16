@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: membersite
-          image: harbor.ailabpte.co/membersite/membersite:e2e210c
+          image: harbor.ailabpte.co/membersite/membersite:3b6741f
           ports:
             - containerPort: 80
           env:
