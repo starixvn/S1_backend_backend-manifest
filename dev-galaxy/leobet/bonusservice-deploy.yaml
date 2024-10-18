@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: bonusservice
-          image: harbor.ailabpte.co/bonusservice/bonusservice:11a7335
+          image: harbor.ailabpte.co/bonusservice/bonusservice:2ea2df7
           ports:
             - containerPort: 50997
           env:
