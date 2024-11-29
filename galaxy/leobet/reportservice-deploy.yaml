@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: reportservice
-          image: harbor.ailabpte.co/reportservice/reportservice:1f112f5
+          image: harbor.ailabpte.co/reportservice/reportservice:62e9250
           ports:
             - containerPort: 8418
           env:
