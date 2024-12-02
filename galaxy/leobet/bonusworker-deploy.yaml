@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: bonusworker
-          image: harbor.ailabpte.co/bonusservice/bonusservice:cf390b9
+          image: harbor.ailabpte.co/bonusservice/bonusservice:c02dd9f
           env:
             - name: ASPNETCORE_ENVIRONMENT
               valueFrom:
